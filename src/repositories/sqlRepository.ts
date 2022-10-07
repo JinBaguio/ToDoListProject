@@ -51,7 +51,7 @@ export class sqlRepository {
         return sql.connect(connString)
             .then(() => {
                 var request = new sql.Request();
-                var query = "SELECT CompanyID, CompanyDetails, CompanyName, CompanyAddress, CompanyCountry FROM dbo.Tbl_Company";
+                var query = "SELECT CompanyID, CompanyDetails, CompanyName, CompanyAddress, CompanyCountry, UserID FROM dbo.Tbl_Company";
                 return request.query(query);
             })
             .then((recordset) => {
@@ -159,7 +159,7 @@ export class sqlRepository {
         return sql.connect(connString)
             .then(() => {
                 var request = new sql.Request();
-                var query = "Insert into dbo.Tbl_Company (CompanyID, CompanyDetails, CompanyName, CompanyAddress, CompanyCountry) Values ('" + myList.CompanyId + "', '" + myList.CompanyDetails + "', '" + myList.CompanyNm + "', '" + myList.CompanyAddrs + "', '" + myList.CompanyCntry + "')";
+                var query = "Insert into dbo.Tbl_Company (CompanyID, CompanyDetails, CompanyName, CompanyAddress, CompanyCountry, UserID) Values ('" + myList.CompanyId + "', '" + myList.CompanyDetails + "', '" + myList.CompanyNm + "', '" + myList.CompanyAddrs + "', '" + myList.CompanyCntry + "', '" + myList.UserID + "')";
                 return request.query(query);
             })
             .then((recordset) => {
