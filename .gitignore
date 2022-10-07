@@ -1,0 +1,30 @@
+# package directories
+
+jspm_packages
+node_modules/
+utils/node_modules/
+
+# Serverless directories
+.serverless**
+
+# Webpack directories
+.webpack
+
+# application build folders
+dist
+build
+coverage
+.coverage
+.webpack
+.reports
+.package
+package-lock.json
+.dynamodb
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
