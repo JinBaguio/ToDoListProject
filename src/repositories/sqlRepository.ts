@@ -1,6 +1,6 @@
 
 import { LoggingModel } from '../models/loggingModel';
-import { CmpnyModel } from '../models/CmpnyModel';
+import { CmpnyModel } from '../models/cmpnyModel';
 
 const sql = require('mssql');
 const AWS = require('aws-sdk');

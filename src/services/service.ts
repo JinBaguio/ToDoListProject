@@ -1,6 +1,6 @@
 import { sqlRepository } from '../repositories/sqlRepository';
 import { LoggingModel } from '../models/loggingModel';
-import { CmpnyModel } from '../models/CmpnyModel';
+import { CmpnyModel } from '../models/cmpnyModel';
 
 export class Service {
     private sqlRepo = new sqlRepository();   

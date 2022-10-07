@@ -1,5 +1,5 @@
 import { Service } from '../src/services/Service';
-import { CmpnyModel } from '../src/models/CmpnyModel';
+import { CmpnyModel } from '../src/models/cmpnyModel';
 import { LoggingModel } from '../src/models/loggingModel';
 import { Authorizer } from '../authorizer/authorizer'
 
@@ -30,7 +30,7 @@ const auth =  new Authorizer();
         }
         else if (event.body.actionType == 1){ //For create/insert
           return new Promise(resolve => {
-            let myList = new CmpnyModel(event.body.actionId, event.body.actionDetails, event.body.userId, event.body.company, event.body.actionDt, event.body.userId);
+            let myList = new CmpnyModel(event.body.CompanyDetails, event.body.CompanyAddrs, event.body.CompanyNm, event.body.CompanyCntry, event.body.CompanyId, event.body.userId);
               myServices.insertCompany(myList).then((result) => {
                 let response = {
                     contentType: "application/json",
@@ -57,7 +57,7 @@ const auth =  new Authorizer();
         });
       } else if (event.body.actionType == 3){ //For update
           return new Promise(resolve => {
-            let myList = new CmpnyModel(event.body.actionId, event.body.actionDetails, event.body.userId, event.body.company, event.body.actionDt, event.body.userId);
+            let myList = new CmpnyModel(event.body.CompanyDetails, event.body.CompanyAddrs, event.body.CompanyNm, event.body.CompanyCntry, event.body.CompanyId, event.body.userId);
               myServices.updateCompany(myList).then((result) => {
                 let response = {
                     contentType: "application/json",
@@ -87,7 +87,7 @@ const auth =  new Authorizer();
     } else if (event.body.actionType == 5){ //For client Admin
         if(authResult.userRole == 'clientAdmin') {
           return new Promise(resolve => {
-            let myList = new CmpnyModel(event.body.actionId, event.body.actionDetails, event.body.userId, event.body.company, event.body.actionDt, event.body.userId);
+            let myList = new CmpnyModel(event.body.CompanyDetails, event.body.CompanyAddrs, event.body.CompanyNm, event.body.CompanyCntry, event.body.CompanyId, event.body.userId);
               myServices.insertClient(myList, event.body.userId).then((result) => {
                 let response = {
                     contentType: "application/json",
@@ -128,7 +128,7 @@ const auth =  new Authorizer();
       if(authResult['authResult'] == 'Authorized' && authResult.userRole == "clientAdmin"){  
         if (event.body.actionType == 1){ //For create/insert
           return new Promise(resolve => {
-            let myList = new CmpnyModel(event.body.actionId, event.body.actionDetails, event.body.userId, event.body.company, event.body.actionDt, event.body.userId);
+            let myList = new CmpnyModel(event.body.CompanyDetails, event.body.CompanyAddrs, event.body.CompanyNm, event.body.CompanyCntry, event.body.CompanyId, event.body.userId);
               myServices.insertCompany(myList).then((result) => {
                 let response = {
                     contentType: "application/json",
@@ -155,7 +155,7 @@ const auth =  new Authorizer();
         });
       } else if (event.body.actionType == 3){ //For update
           return new Promise(resolve => {
-            let myList = new CmpnyModel(event.body.actionId, event.body.actionDetails, event.body.userId, event.body.company, event.body.actionDt, event.body.userId);
+            let myList = new CmpnyModel(event.body.CompanyDetails, event.body.CompanyAddrs, event.body.CompanyNm, event.body.CompanyCntry, event.body.CompanyId, event.body.userId);
               myServices.updateCompany(myList).then((result) => {
                 let response = {
                     contentType: "application/json",
